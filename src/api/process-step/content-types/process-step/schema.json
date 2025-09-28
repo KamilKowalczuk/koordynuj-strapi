@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "process_steps",
+  "info": {
+    "singularName": "process-step",
+    "pluralName": "process-steps",
+    "displayName": "process-step"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "details": {
+      "type": "json"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

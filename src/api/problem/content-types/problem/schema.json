@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "problems",
+  "info": {
+    "singularName": "problem",
+    "pluralName": "problems",
+    "displayName": "problem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "revenue-loss",
+        "legal-risk",
+        "inefficiency"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}
