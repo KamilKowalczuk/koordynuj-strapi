@@ -533,6 +533,56 @@ export interface ApiContactFormContactForm extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiContactContact extends Struct.CollectionTypeSchema {
+  collectionName: 'contact';
+  info: {
+    displayName: 'contact';
+    pluralName: 'contacts';
+    singularName: 'contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    imie_nazwisko: Schema.Attribute.Text & Schema.Attribute.Required;
+    ip_address: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact.contact'
+    > &
+      Schema.Attribute.Private;
+    notatki_wewnetrzne: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    publishedAt: Schema.Attribute.DateTime;
+    status_wiadomosci: Schema.Attribute.Enumeration<
+      ['nowa', 'przeczytana', 'odpowiedziano', 'archiwum']
+    > &
+      Schema.Attribute.DefaultTo<'nowa'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user_agent: Schema.Attribute.String;
+    wiadomosc: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
   collectionName: 'global_settings';
   info: {
@@ -1283,6 +1333,7 @@ declare module '@strapi/strapi' {
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::contact-form.contact-form': ApiContactFormContactForm;
+      'api::contact.contact': ApiContactContact;
       'api::global-setting.global-setting': ApiGlobalSettingGlobalSetting;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::problem.problem': ApiProblemProblem;

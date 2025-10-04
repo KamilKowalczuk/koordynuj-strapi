@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imie_nazwisko": {
+      "type": "text",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "status_wiadomosci": {
+      "type": "enumeration",
+      "default": "nowa",
+      "enum": [
+        "nowa",
+        "przeczytana",
+        "odpowiedziano",
+        "archiwum"
+      ]
+    },
+    "wiadomosc": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "required": true,
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "notatki_wewnetrzne": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "user_agent": {
+      "type": "string"
+    }
+  }
+}
