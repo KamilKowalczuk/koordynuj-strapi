@@ -1,27 +1,35 @@
-// Plik: [twój-projekt-strapi]/config/database.ts
-
+// config/database.ts
 import path from 'path';
 
 export default ({ env }) => {
-  // === Konfiguracja dla środowiska produkcyjnego (gdy działa na Railway) ===
   if (env('NODE_ENV') === 'production') {
+    const { parse } = require('pg-connection-string');
+    const config = parse(env('DATABASE_URL'));
+
     return {
       connection: {
         client: 'postgres',
         connection: {
-          // Strapi odczyta ten URL ze zmiennych środowiskowych, które ustawiliśmy na Railway
-          connectionString: env('DATABASE_URL'),
+          host: config.host,
+          port: config.port,
+          database: config.database,
+          user: config.user,
+          password: config.password,
           ssl: {
-            // Ta opcja jest krytycznie ważna dla Railway, Render i podobnych platform
             rejectUnauthorized: false
-          }
+          },
         },
+        pool: {
+          min: 2,
+          max: 10
+        },
+        acquireConnectionTimeout: 60000,
         debug: false,
       },
     };
   }
 
-  // === Konfiguracja dla środowiska lokalnego (gdy uruchamiasz `npm run develop`) ===
+  // Lokalne SQLite
   return {
     connection: {
       client: 'sqlite',
