@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "seo_homes",
+  "info": {
+    "singularName": "seo-home",
+    "pluralName": "seo-homes",
+    "displayName": "seo-home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

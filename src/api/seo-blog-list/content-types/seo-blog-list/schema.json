@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "seo_blog_lists",
+  "info": {
+    "singularName": "seo-blog-list",
+    "pluralName": "seo-blog-lists",
+    "displayName": "seo-blog-list"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": true
+    }
+  }
+}
