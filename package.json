@@ -13,8 +13,9 @@
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "build:railway": "strapi build"
-    },
+    "seed:import": "strapi import --force --file export_20250925110654.tar.gz",
+    "railway:start": "bash -c 'npm run build && npm run seed:import && npm run start'"
+  },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^6.0.3",
     "@strapi/plugin-cloud": "5.23.6",
