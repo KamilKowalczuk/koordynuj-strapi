@@ -26,7 +26,7 @@
       }
     },
     "excerpt": {
-      "type": "string"
+      "type": "text"
     },
     "published": {
       "type": "datetime"
