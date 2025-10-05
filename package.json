@@ -13,12 +13,12 @@
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "seed:import": "strapi import --force --file export_20250925110654.tar.gz",
-    "railway:start": "bash -c 'npm run build && npm run seed:import && npm run start'"
+    "railway:start": "bash -c 'npm run build && npm run start'"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^6.0.3",
     "@strapi/plugin-cloud": "5.23.6",
+    "@strapi/plugin-seo": "^2.0.8",
     "@strapi/plugin-users-permissions": "5.23.6",
     "@strapi/strapi": "5.23.6",
     "better-sqlite3": "11.3.0",
