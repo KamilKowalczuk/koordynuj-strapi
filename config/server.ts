@@ -1,8 +1,8 @@
-// ścieżka: config/server.ts
-
+// config/server.ts
 export default ({ env }) => ({
-  host: env('HOST', '0.0.0.0'), // Upewniamy się, że domyślnie nasłuchuje na wszystkich interfejsach
+  host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
+  url: env('URL', 'http://localhost:1337'), // 🔥 TO BYŁO KLUCZOWE!
   app: {
     keys: env.array('APP_KEYS'),
   },
