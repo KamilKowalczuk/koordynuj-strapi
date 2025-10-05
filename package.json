@@ -13,7 +13,7 @@
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "railway:start": "bash -c 'npm run build && npm run start'"
+		"build:railway": "strapi build && strapi"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^6.0.3",
@@ -22,6 +22,7 @@
     "@strapi/plugin-users-permissions": "5.23.6",
     "@strapi/strapi": "5.23.6",
     "better-sqlite3": "11.3.0",
+    "pg": "^8.16.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
