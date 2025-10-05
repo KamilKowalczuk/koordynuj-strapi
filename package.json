@@ -9,12 +9,12 @@
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
-    "start": "node --max-old-space-size=2048 ./node_modules/.bin/strapi start",
+    "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "build:railway": "strapi build && strapi import -f export_20250825215648.tar.gz --force"
-  },
+    "build:railway": "strapi build"
+    },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^6.0.3",
     "@strapi/plugin-cloud": "5.23.6",
